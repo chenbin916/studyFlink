@@ -16,7 +16,7 @@ public class WorldCount {
         // set up the streaming execution environment
         final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-        DataSet<String> textStream = env.readTextFile("F:\\gitWorkSpace\\studyFlink\\src\\main\\resources\\word.txt");
+        DataSet<String> textStream = env.readTextFile("F:\\gitWorkSpace\\studyFlink_new\\studyFlink\\src\\main\\resources\\word.txt");
 
         FlatMapOperator<String, Tuple2<String, Integer>> wordStream = textStream.flatMap(new MyFlatMapFunction());
         UnsortedGrouping<Tuple2<String, Integer>> resultStream1=wordStream.groupBy(0);
